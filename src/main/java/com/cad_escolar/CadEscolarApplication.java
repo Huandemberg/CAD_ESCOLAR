@@ -1,4 +1,4 @@
-package com.cad_escolar.cad_escolar;
+package com.cad_escolar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
