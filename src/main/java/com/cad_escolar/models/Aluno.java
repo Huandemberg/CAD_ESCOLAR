@@ -23,7 +23,7 @@ public class Aluno extends Pessoa {
 
     public static final String TABLE_NAME = "aluno";
     
-    @Column(name = "matricula", nullable = false, unique = true)
+    @Column(name = "matricula", nullable = false, unique = true, updatable = false)
     @NotBlank
     private String matricula;
 
