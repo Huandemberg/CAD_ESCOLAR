@@ -3,6 +3,8 @@ package com.cad_escolar.models;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -36,6 +38,7 @@ public class Aluno extends Pessoa {
 
     @ManyToOne
     @JoinColumn(name = "turma_id", referencedColumnName = "id")
+    @JsonIgnoreProperties({"disciplinas", "alunos"})
     private Turma turma;
 
     @ManyToMany(mappedBy = "alunos")

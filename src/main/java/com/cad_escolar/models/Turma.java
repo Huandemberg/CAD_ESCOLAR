@@ -2,6 +2,8 @@ package com.cad_escolar.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -44,6 +46,7 @@ public class Turma {
     private int ano;
 
     @OneToMany(mappedBy = "turma", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"disciplinas", "alunos", "turma"})
     private List<Aluno> alunos;
 
     @ManyToMany
@@ -52,6 +55,7 @@ public class Turma {
         joinColumns = @JoinColumn(name = "turma_id"),
         inverseJoinColumns = @JoinColumn(name = "disciplina_id")
     )
+    @JsonIgnoreProperties({"professor", "alunos"})
     private List<Disciplina> disciplinas;
 
 }

@@ -37,6 +37,7 @@ public class AlunoService {
         newObj.setDataNascimento(obj.getDataNascimento());
         newObj.setEmail(obj.getEmail());
         newObj.setNome(obj.getNome());
+        newObj.setTurma(obj.getTurma());
         return this.alunoRepository.save(newObj);
 
     }

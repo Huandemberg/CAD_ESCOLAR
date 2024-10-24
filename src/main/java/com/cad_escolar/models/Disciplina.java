@@ -2,6 +2,8 @@ package com.cad_escolar.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -44,6 +46,7 @@ public class Disciplina {
 
     @ManyToOne
     @JoinColumn(name = "professor_id", nullable = false, updatable = true )
+    @JsonIgnoreProperties("disciplinas")
     private Professor professor;
 
     @ManyToMany
