@@ -27,7 +27,7 @@ public class ProfessorController {
     @Autowired
     private ProfessorService professorService;
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Professor> findById(@PathVariable Long id) {
         Professor obj = this.professorService.findById(id);
         return ResponseEntity.ok().body(obj);

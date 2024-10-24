@@ -2,6 +2,7 @@ package com.cad_escolar.services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cad_escolar.models.Professor;
@@ -9,6 +10,7 @@ import com.cad_escolar.repositories.ProfessorRepository;
 import com.cad_escolar.services.exceptions.DataBindingViolationException;
 import com.cad_escolar.services.exceptions.ObjectNotFoundException;
 
+@Service
 public class ProfessorService {
     
     @Autowired

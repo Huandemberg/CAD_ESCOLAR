@@ -27,7 +27,7 @@ public class NotaController {
     @Autowired
     private NotaService notaService;
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Nota> findById(@PathVariable Long id) {
         Nota obj = this.notaService.findById(id);
         return ResponseEntity.ok().body(obj);

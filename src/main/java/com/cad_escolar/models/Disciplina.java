@@ -1,11 +1,15 @@
 package com.cad_escolar.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -41,5 +45,13 @@ public class Disciplina {
     @ManyToOne
     @JoinColumn(name = "professor_id", nullable = false, updatable = true )
     private Professor professor;
+
+    @ManyToMany
+    @JoinTable(
+        name = "aluno_disciplina",
+        joinColumns = @JoinColumn(name = "disciplina_id"),
+        inverseJoinColumns = @JoinColumn(name = "aluno_id")
+    )
+    private List<Aluno> alunos;
 
 }

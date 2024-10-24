@@ -1,6 +1,10 @@
 package com.cad_escolar.models;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -19,6 +23,10 @@ public class Professor extends Pessoa {
     
     public static final String TABLE_NAME = "professor";
 
+    @Column(nullable = false)
     private String disciplinaPrincipal;
+
+    @OneToMany(mappedBy = "professor")
+    private List<Disciplina> disciplinas;
 
 }

@@ -27,7 +27,7 @@ public class DisciplinaController {
     @Autowired
     private DisciplinaService disciplinaService;
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Disciplina> findById(@PathVariable Long id) {
         Disciplina obj = this.disciplinaService.findById(id);
         return ResponseEntity.ok().body(obj);

@@ -1,9 +1,13 @@
 package com.cad_escolar.models;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -28,6 +32,13 @@ public class Aluno extends Pessoa {
     private String matricula;
 
     @Column(name = "dataNasc", nullable = false)
-    public LocalDate dataNascimento;
+    private LocalDate dataNascimento;
+
+    @ManyToOne
+    @JoinColumn(name = "turma_id", referencedColumnName = "id")
+    private Turma turma;
+
+    @ManyToMany(mappedBy = "alunos")
+    private List<Disciplina> disciplinas;
 
 }

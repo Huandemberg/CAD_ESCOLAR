@@ -2,13 +2,16 @@ package com.cad_escolar.models;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -40,12 +43,15 @@ public class Turma {
     @Column(name = "ano", nullable = false)
     private int ano;
 
-    @ManyToMany
-    @JoinColumn(name = "aluno_id", nullable = false, updatable = true)
+    @OneToMany(mappedBy = "turma", cascade = CascadeType.ALL)
     private List<Aluno> alunos;
 
     @ManyToMany
-    @JoinColumn(name = "disciplina_id", nullable = false, updatable = true)
+    @JoinTable(
+        name = "turma_disciplina",
+        joinColumns = @JoinColumn(name = "turma_id"),
+        inverseJoinColumns = @JoinColumn(name = "disciplina_id")
+    )
     private List<Disciplina> disciplinas;
 
 }

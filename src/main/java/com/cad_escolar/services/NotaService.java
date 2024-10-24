@@ -1,6 +1,7 @@
 package com.cad_escolar.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cad_escolar.models.Nota;
@@ -8,6 +9,7 @@ import com.cad_escolar.repositories.NotaRepository;
 import com.cad_escolar.services.exceptions.DataBindingViolationException;
 import com.cad_escolar.services.exceptions.ObjectNotFoundException;
 
+@Service
 public class NotaService {
     
     @Autowired

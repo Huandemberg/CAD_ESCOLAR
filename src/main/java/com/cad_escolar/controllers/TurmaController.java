@@ -27,7 +27,7 @@ public class TurmaController {
     @Autowired
     private TurmaService turmaService;
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Turma> findById(@PathVariable Long id) {
         Turma obj = this.turmaService.findById(id);
         return ResponseEntity.ok().body(obj);

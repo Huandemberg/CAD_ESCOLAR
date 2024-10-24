@@ -27,7 +27,7 @@ public class AlunoController {
     @Autowired
     private AlunoService alunoService;
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public ResponseEntity<Aluno> findById(@PathVariable Long id) {
         Aluno obj = this.alunoService.findById(id);
         return ResponseEntity.ok().body(obj);
