@@ -38,10 +38,11 @@ public class Aluno extends Pessoa {
 
     @ManyToOne
     @JoinColumn(name = "turma_id", referencedColumnName = "id")
-    @JsonIgnoreProperties({"disciplinas", "alunos"})
+    @JsonIgnoreProperties({"alunos"})
     private Turma turma;
 
     @ManyToMany(mappedBy = "alunos")
+    @JsonIgnoreProperties("disciplinas")
     private List<Disciplina> disciplinas;
 
 }
