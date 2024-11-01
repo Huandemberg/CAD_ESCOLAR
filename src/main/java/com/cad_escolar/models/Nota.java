@@ -2,6 +2,8 @@ package com.cad_escolar.models;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,10 +34,12 @@ public class Nota {
 
     @ManyToOne
     @JoinColumn(name = "aluno_id", nullable = false, updatable = true)
+    @JsonIgnoreProperties({"disciplinas", "turma", "dataNascimento", "email"})
     private Aluno aluno;
 
     @ManyToOne
     @JoinColumn(name = "disciplina_id", nullable = false, updatable = true)
+    @JsonIgnoreProperties({ "professor", "alunos"})
     private Disciplina disciplina;
 
     @Column(name = "valor", nullable = false, updatable = true)

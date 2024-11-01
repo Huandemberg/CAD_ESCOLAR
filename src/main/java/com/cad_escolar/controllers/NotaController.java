@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/nota")
 public class NotaController {
-    
+
     @Autowired
     private NotaService notaService;
 
@@ -56,7 +56,7 @@ public class NotaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        
+
         this.notaService.delete(id);
         return ResponseEntity.noContent().build();
 
