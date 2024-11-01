@@ -1,5 +1,7 @@
 package com.cad_escolar.services;
 
+import java.util.List;
+
 //import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,12 @@ public class TurmaService {
         ));
 
         return turma;
+    }
+
+    public List<Turma> findAll(){
+        
+        List<Turma> turmas = this.turmaRepository.findAll();
+        return turmas;
     }
 
     @Transactional

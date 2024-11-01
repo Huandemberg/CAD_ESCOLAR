@@ -1,6 +1,7 @@
 package com.cad_escolar.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,18 @@ public class NotaController {
     public ResponseEntity<Nota> findById(@PathVariable Long id) {
         Nota obj = this.notaService.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping("/notas")
+    public ResponseEntity<List<Nota>> findAllNotas() {
+        List<Nota> objs = this.notaService.findAll();
+        return ResponseEntity.ok().body(objs);
+    }
+
+    @GetMapping("/notas/{id}")
+    public ResponseEntity<List<Nota>> findAllNotasAluno(@PathVariable Long id) {
+        List<Nota> objs = this.notaService.findAllById(id);
+        return ResponseEntity.ok().body(objs);
     }
 
     @PostMapping

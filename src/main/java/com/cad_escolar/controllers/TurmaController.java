@@ -1,6 +1,7 @@
 package com.cad_escolar.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,12 @@ public class TurmaController {
     public ResponseEntity<Turma> findById(@PathVariable Long id) {
         Turma obj = this.turmaService.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping("/turmas")
+    public ResponseEntity<List<Turma>> findAllTurmas() {
+        List<Turma> objs = this.turmaService.findAll();
+        return ResponseEntity.ok().body(objs);
     }
 
     @PostMapping

@@ -1,6 +1,7 @@
 package com.cad_escolar.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,12 @@ public class AlunoController {
     public ResponseEntity<Aluno> findById(@PathVariable Long id) {
         Aluno obj = this.alunoService.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping("/alunos")
+    public ResponseEntity<List<Aluno>> findAllAlunos() {
+        List<Aluno> objs = this.alunoService.findAll();
+        return ResponseEntity.ok().body(objs);
     }
 
     @PostMapping

@@ -1,6 +1,7 @@
 package com.cad_escolar.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,12 @@ public class ProfessorController {
     public ResponseEntity<Professor> findById(@PathVariable Long id) {
         Professor obj = this.professorService.findById(id);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @GetMapping("/professores")
+    public ResponseEntity<List<Professor>> findAllProfessores() {
+        List<Professor> objs = this.professorService.findAll();
+        return ResponseEntity.ok().body(objs);
     }
 
     @PostMapping

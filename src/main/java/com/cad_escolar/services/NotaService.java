@@ -1,5 +1,7 @@
 package com.cad_escolar.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,18 @@ public class NotaService {
 
     return nota;
 
+    }
+
+    public List<Nota> findAll(){
+        
+        List<Nota> notas = this.notaRepository.findAll();
+        return notas;
+    }
+
+    public List<Nota> findAllById(Long id){
+        
+        List<Nota> notas = this.notaRepository.findAllByAluno_id(id);
+        return notas;
     }
 
     @Transactional

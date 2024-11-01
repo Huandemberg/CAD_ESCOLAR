@@ -1,6 +1,8 @@
 package com.cad_escolar.services;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +24,12 @@ public class DisciplinaService {
         ));
 
         return disciplina;
+    }
+
+    public List<Disciplina> findAll(){
+        
+        List<Disciplina> disciplinas = this.disciplinaRepository.findAll();
+        return disciplinas;
     }
 
     @Transactional
